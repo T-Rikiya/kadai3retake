@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
-    @user = User.find(params[:id])
+    @user = current_user
+    @users = User.all
   end
 
   def edit
@@ -11,17 +12,17 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @books = @user.books
   end
-  
+
   def update
-    user = User.find(params[:id])
-    user.update(user_params)
-    redirect_to user_path(user.id)
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to user_path(@user.id)
   end
-  
+
   private
-  
-  def list_params
-    params.require(:user).permit(:name, :introduction, :image)  
+
+  def user_params
+    params.require(:user).permit(:name, :introduction, :profile_image)
   end
 
 end
