@@ -2,7 +2,18 @@
   <div class="raw">
     <div class="col-md-3">
       <%= render 'list', user: @user %>
+      
       <div class="New book">
+        
+        <% if @book.errors.any? %>
+          <%= @book.errors.count %> error
+          <ul>
+            <% @book.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+        
         <h2>New book</h2>
         <%= form_with model: @book do |f| %>
           <div class="form-group">

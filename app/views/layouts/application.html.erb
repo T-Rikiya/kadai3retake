@@ -25,9 +25,12 @@
         <li><%= link_to "Log in", new_user_session_path %></li>
       <% end %>
     </header>
+    
     <main>
-
     </main>
+    
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
     <div class="raw-md-8">
       <div class="col-md-12">
@@ -36,6 +39,5 @@
         </footer>
       </div>
     </div>
-
   </body>
 </html>
