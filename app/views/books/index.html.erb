@@ -2,9 +2,9 @@
   <div class="raw">
     <div class="col-md-3">
       <%= render 'list', user: @user %>
-      
+
       <div class="New book">
-        
+
         <% if @book.errors.any? %>
           <%= @book.errors.count %> error
           <ul>
@@ -13,7 +13,7 @@
             <% end %>
           </ul>
         <% end %>
-        
+
         <h2>New book</h2>
         <%= form_with model: @book do |f| %>
           <div class="form-group">
@@ -25,7 +25,7 @@
             <%= f.text_area :body %>
           </div>
           <div class="form-group">
-            <%= f.submit 'Create book' %>
+            <%= f.submit 'Create Book', class: "btn btn-success" %>
           </div>
         <% end %>
       </div>
